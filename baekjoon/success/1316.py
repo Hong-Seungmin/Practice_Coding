@@ -8,14 +8,22 @@ email  : globalsh1@gmail.com
   link  : <<https://www.acmicpc.net/problem/1316>>
 '''
 
+
 #####
 
 
 def is_group_word(word):
+    array_char = []
 
+    for i in range(len(word)):
+        if word[i] in array_char:
+            if word[i] == word[i-1]:
+                continue
+            else:
+                return False
+        array_char.append(word[i])
 
     return True
-
 
 
 testCnt = int(input())
@@ -23,8 +31,8 @@ testCnt = int(input())
 cnt = 0
 for _ in range(testCnt):
     word = input()
-    result = is_group_word(word)
-    if result:
+
+    if is_group_word(word):
         cnt += 1
 
 print(cnt)
